@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: library_schema
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/library_db?serverTimezone=UTC
+    username: library_user
+    password: library_pass_123
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 60000
+      maxLifetime: 7190000
+      minimumIdle: 2
+      maximumPoolSize: 50
+logging:
+  level:
+    root: info
+    com.netcracker.library: DEBUG
+    org.springframework: INFO
