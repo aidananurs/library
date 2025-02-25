@@ -25,7 +25,7 @@ public interface AuthorMapper {
     default List<BookInfo> mapBooks(Set<Book> books) {
         return (books != null) ? books.stream().map(this::toBookInfo).collect(Collectors.toList()) : List.of();
     }
-
+    @Mapping(target = "categoryId", source = "category.categoryId")
     BookInfo toBookInfo(Book book);
 
 }

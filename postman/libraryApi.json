@@ -14,12 +14,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/authors",
+							"raw": "http://0.0.0.0:8088/api/authors",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"authors"
@@ -34,12 +34,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/authors/:id",
+							"raw": "http://0.0.0.0:8088/api/authors/:id",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"authors",
@@ -70,12 +70,12 @@
 							"raw": "{\n  \"name\": \"Jane Austen\",\n  \"nationality\": \"British\",\n  \"birthDate\": \"1775-12-16\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/authors",
+							"raw": "http://0.0.0.0:8088/api/authors",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"authors"
@@ -99,12 +99,12 @@
 							"raw": "{\n  \"name\": \"Updated Author Name\",\n  \"nationality\": \"Updated Nationality\",\n  \"birthDate\": \"1900-01-01\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/authors/:id",
+							"raw": "http://0.0.0.0:8088/api/authors/:id",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"authors",
@@ -126,22 +126,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/authors/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/authors/12",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"authors",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								}
+								"12"
 							]
 						}
 					},
@@ -158,12 +150,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/books",
+							"raw": "http://0.0.0.0:8088/api/books",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"books"
@@ -187,12 +179,12 @@
 							"raw": "{\n  \"title\": \"The Great Gatsby\",\n  \"authorId\": 1,\n  \"categoryId\": 2,\n  \"publishedYear\": 1925\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/books",
+							"raw": "http://0.0.0.0:8088/api/books",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"books"
@@ -207,12 +199,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/books/:id",
+							"raw": "http://0.0.0.0:8088/api/books/:id",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"books",
@@ -243,12 +235,12 @@
 							"raw": "{\n  \"title\": \"Updated Book Title\",\n  \"authorId\": 1,\n  \"categoryId\": 2,\n  \"publishedYear\": 2022\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/books/:id",
+							"raw": "http://0.0.0.0:8088/api/books/:id",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"books",
@@ -270,12 +262,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/books/:id",
+							"raw": "http://0.0.0.0:8088/api/books/:id",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"0.0.0.0"
 							],
-							"port": "8080",
+							"port": "8088",
 							"path": [
 								"api",
 								"books",
@@ -576,19 +568,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/api/members/:id",
+							"raw": "{{base_url}}/api/members/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
 								"members",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id"
-								}
+								"1"
 							]
 						}
 					},
@@ -661,13 +648,66 @@
 							"path": [
 								"api",
 								"members",
-								"1"
+								":id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/members/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"members",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Member ID"
+								}
 							]
 						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8ef117b9-c851-4bda-a057-ad675ce5cc1a",
+			"key": "baseUrl",
+			"value": "0.0.0.0:8088"
 		}
 	]
 }

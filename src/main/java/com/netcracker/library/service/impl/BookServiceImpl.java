@@ -1,6 +1,5 @@
 package com.netcracker.library.service.impl;
 
-import com.netcracker.library.entity.Author;
 import com.netcracker.library.exceptions.NotFoundException;
 import com.netcracker.library.mapper.BookMapper;
 import com.netcracker.library.model.BookDto;
