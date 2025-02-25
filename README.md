@@ -32,7 +32,7 @@ Ensure you have the following installed:
 
 2. **Build and run the services:**  
    ```bash
-   docker-compose up --build -d
+   docker-compose up -d
    ```  
    This will start the following containers:  
    - `app`: The Spring Boot application.  
