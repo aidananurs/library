@@ -7,7 +7,7 @@ This system allows users to manage books, track borrowed and returned items, and
 ✅ **Book Management** – Add, update, delete, and search books.  
 ✅ **Author Management** – Store and manage author details.  
 ✅ **Category Management** – Classify books into different categories.  
-✅ **Member Management** – Keep track of library members.
+✅ **Member Management** – Keep track of library members.  
 ✅ **Borrow & Return System** – Track book borrowings.
 
 ## Tech Stack 🛠
