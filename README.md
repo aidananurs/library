@@ -20,7 +20,8 @@ This system allows users to manage books, track borrowed and returned items, and
 ### Prerequisites  
 Ensure you have the following installed:  
 - [Docker](https://www.docker.com/)  
-- [Docker Compose](https://docs.docker.com/compose/)  
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Maven](https://maven.apache.org/install.html)
 
 ### Steps  
 
@@ -28,9 +29,13 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/aidananurs/library.git
    cd library
-   ```  
+   ```
+2. **Run:**  
+   ```bash
+   mvn clean package
+   ``` 
 
-2. **Build and run the services:**  
+3. **Build and run the services:**  
    ```bash
    docker compose up --build -d
    ```  
@@ -38,22 +43,24 @@ Ensure you have the following installed:
    - `app`: The Spring Boot application.  
    - `db`: PostgreSQL database instance.  
 
-3. **Verify that the containers are running:**  
+4. **Verify that the containers are running:**  
    ```bash
    docker ps
    ```  
    You should see both the `app` and `db` containers running.  
 
-4. **Access the application:**  
-   - The backend service will be available at: [`http://localhost`](http://localhost)  
-   - The PostgreSQL database runs on port `5432` with credentials:  
+5. **Access the application:**  
+   - The backend service will be available at: [`http://0.0.0.0:8088`](http://0.0.0.0:8088)  
+   - The PostgreSQL database runs on `0.0.0.0:5432` with credentials:  
      - **User:** `library_user`  
      - **Password:** `library_pass_123`  
      - **Database:** `library_db`
        
-5. Connect to the PostgreSQL database
-   
-6. Run the SQL script `database/init.sql` from this repository.
+6. **Execute a SQL Script After Container Startup:**
+   ```bash
+   docker exec -i db psql -U library_user -d library_db < ./database/insert.sql
+   ```
+   This Script inserts test data.
 
 7. **Postman Collection**  
       To test API endpoints, import the Postman collection:
