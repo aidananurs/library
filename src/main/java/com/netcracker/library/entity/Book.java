@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "books", schema = "library_schema")
@@ -49,5 +51,6 @@ public class Book {
         joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name = "author_id"))
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private List<Author> authors;
+    private Set<Author> authors = new HashSet<>();
+
 }

@@ -26,6 +26,7 @@ public class BorrowingServiceImpl implements BorrowingService {
     private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public void save(SaveBorrowingRequest request) {
         var book = bookRepository.findById(request.bookId())
                 .orElseThrow(() -> new NotFoundException("Book with id " + request.bookId() + " not found"));
@@ -39,7 +40,7 @@ public class BorrowingServiceImpl implements BorrowingService {
         borrowingRepository.save(borrowing);
     }
 
-   @Override
+    @Override
     @Transactional
     public void update(Long id, SaveBorrowingRequest request) {
         Borrowing existingBorrowing = borrowingRepository.findById(id)
@@ -57,7 +58,6 @@ public class BorrowingServiceImpl implements BorrowingService {
 
         borrowingRepository.save(existingBorrowing);
     }
-
 
     @Override
     public Optional<BorrowingDto> getById(Long borrowingId) {

@@ -50,17 +50,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<MemberDto> getAll() {
-        return memberRepository.findAll().stream()
-                .map(memberMapper::toDto)
-                .collect(Collectors.toList());
+        return memberRepository.findAll().stream().map(memberMapper::toDto).toList();
     }
 
     @Override
     public void deleteById(Long memberId) {
-        if (memberRepository.existsById(memberId)) {
-            memberRepository.deleteById(memberId);
-        } else {
-            throw new IllegalArgumentException("Member with id " + memberId + " not found");
-        }
+        memberRepository.deleteById(memberId);
     }
 }

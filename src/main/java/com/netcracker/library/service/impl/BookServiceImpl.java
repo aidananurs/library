@@ -41,12 +41,12 @@ public class BookServiceImpl implements BookService {
 
         var book = bookMapper.toEntity(request);
         book.setCategory(category);
-        book.setAuthors(authors);
-
+        book.setAuthors(new HashSet<>(authors));
         bookRepository.save(book);
     }
 
     @Override
+    @Transactional
     public void update(Long id, SaveBookRequest request) {
         var book = bookRepository.findById(id)
             .orElseThrow(() -> new NotFoundException("Book not found with id: " + id));
@@ -65,11 +65,11 @@ public class BookServiceImpl implements BookService {
         }
 
         if (request.authorIds() != null && !request.authorIds().isEmpty()) {
-            List<Author> authors = authorRepository.findAllById(request.authorIds());
+            var authors = authorRepository.findAllById(request.authorIds());
             if (authors.isEmpty()) {
                 throw new NotFoundException("No authors found for given ids");
             }
-            book.setAuthors(authors);
+            book.setAuthors(new HashSet<>(authors));
         }
 
          bookRepository.save(book);
@@ -88,14 +88,8 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public void deleteById(Long bookId) {
-        var book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new NotFoundException("Book not found"));
-
-        book.getAuthors().forEach(author -> author.getBooks().remove(book));
-        book.getAuthors().clear();
-
-        bookRepository.save(book);
-        bookRepository.delete(book);
+        bookRepository.deleteBookReferences(bookId);
+        bookRepository.deleteById(bookId);
     }
 
 }

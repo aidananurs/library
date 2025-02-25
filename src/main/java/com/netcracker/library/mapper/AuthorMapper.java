@@ -3,7 +3,6 @@ package com.netcracker.library.mapper;
 import com.netcracker.library.entity.Author;
 import com.netcracker.library.entity.Book;
 import com.netcracker.library.model.AuthorDto;
-import com.netcracker.library.model.BookDto;
 import com.netcracker.library.model.BookInfo;
 import com.netcracker.library.model.SaveAuthorRequest;
 import org.mapstruct.Mapper;
@@ -11,6 +10,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -22,7 +22,7 @@ public interface AuthorMapper {
      Author toEntity(SaveAuthorRequest request);
 
     @Named("mapBooks")
-    default List<BookInfo> mapBooks(List<Book> books) {
+    default List<BookInfo> mapBooks(Set<Book> books) {
         return (books != null) ? books.stream().map(this::toBookInfo).collect(Collectors.toList()) : List.of();
     }
 

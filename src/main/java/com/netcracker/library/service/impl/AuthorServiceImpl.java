@@ -52,7 +52,9 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long authorId) {
-       authorRepository.deleteById(authorId);
+        authorRepository.deleteAuthorReferences(authorId);
+        authorRepository.deleteById(authorId);
     }
 }

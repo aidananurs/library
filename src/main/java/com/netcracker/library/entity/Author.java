@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "authors", schema = "library_schema")
@@ -28,12 +28,6 @@ public class Author {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(
-        name = "book_authors",
-        schema = "library_schema",
-        joinColumns = @JoinColumn(name = "author_id"),
-        inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
-    private List<Book> books;
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new HashSet<>();
 }
