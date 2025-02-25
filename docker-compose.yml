@@ -7,8 +7,8 @@ services:
     depends_on:
       - db
     environment:
-      - POSTGRES_USER=TEST_USER
-      - POSTGRES_PASSWORD=TEST_PASS
+      - POSTGRES_USER=library_user
+      - POSTGRES_PASSWORD=library_pass_123
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/library_db
       - SPRING_DATASOURCE_USERNAME=library_user
       - SPRING_DATASOURCE_PASSWORD=library_pass_123
