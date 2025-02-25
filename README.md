@@ -55,7 +55,7 @@ Ensure you have the following installed:
    
 6. Run the SQL script `database/init.sql` from this repository.
 
-7. **Postman Collection**
+7. **Postman Collection**  
       To test API endpoints, import the Postman collection:
       
       1. Open [Postman](https://www.postman.com/).
