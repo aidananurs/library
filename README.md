@@ -1,21 +1,21 @@
-# 📚 Library Management System
+# Library Management System
 
 A simple Library Management System for tracking books, authors, categories, members, and borrowing transactions. 
 This system allows users to manage books, track borrowed and returned items, and organize the library.
 
-## Features 🚀
+## Features
 ✅ **Book Management** – Add, update, delete, and search books.  
 ✅ **Author Management** – Store and manage author details.  
 ✅ **Category Management** – Classify books into different categories.  
 ✅ **Member Management** – Keep track of library members.  
 ✅ **Borrow & Return System** – Track book borrowings.
 
-## Tech Stack 🛠
+## Tech Stack
 - **Backend**: Spring Boot (Java)
 - **Database**: PostgreSQL
 - **Containerization**: Docker & Docker Compose
 
-## Installation & Setup 🏗
+## Installation & Setup
 
 ### Prerequisites  
 Ensure you have the following installed:  
@@ -49,9 +49,22 @@ Ensure you have the following installed:
    - The PostgreSQL database runs on port `5432` with credentials:  
      - **User:** `library_user`  
      - **Password:** `library_pass_123`  
-     - **Database:** `library_db`  
+     - **Database:** `library_db`
+       
+5. Connect to the PostgreSQL database
+   
+6. Run the SQL script `database/init.sql` from this repository.
 
-5. **Stopping the services:**  
+7. **Postman Collection**
+      To test API endpoints, import the Postman collection:
+      
+      1. Open [Postman](https://www.postman.com/).
+      2. Click on **File → Import**.
+      3. Select the file `postman/libraryApi.json` from this repository.
+      4. Update environment variable to match your local setup.
+      5. Send requests to test the API
+
+8. **Stopping the services:**  
    ```bash
    docker-compose down
    ```  
